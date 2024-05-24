@@ -1,0 +1,35 @@
+.profile__others {
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.profile__others__globe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__others__logout {
+  display: none;
+}
+
+.nav__button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 740px) {
+  .profile__others__logout {
+    display: flex;
+  }
+
+  .nav__button {
+    display: none;
+  }
+}

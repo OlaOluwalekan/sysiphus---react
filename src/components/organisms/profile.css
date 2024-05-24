@@ -1,0 +1,37 @@
+.profile__user {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.profile__user--unauthenticated {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__user_details {
+  display: none;
+  align-items: center;
+}
+
+.profile__user__name {
+  width: 90px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 740px) {
+  .profile__user {
+    background-color: #12171d;
+    padding: 10px 15px;
+  }
+
+  .profile__user_details {
+    display: flex;
+  }
+}

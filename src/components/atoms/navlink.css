@@ -1,0 +1,12 @@
+.nav__item--mobile {
+  line-height: 45px;
+  padding: 0 15px;
+}
+
+.nav__item--mobile:hover {
+  background-color: #12171d;
+}
+
+.nav__item--mobile > a {
+  text-decoration: none;
+}

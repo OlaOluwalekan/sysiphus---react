@@ -1,0 +1,38 @@
+.menu--mobile {
+  width: 150px;
+  background-color: #32383f;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__list--mobile {
+  list-style: none;
+}
+
+.nav__item--mobile {
+  line-height: 45px;
+  padding: 0 15px;
+}
+
+.nav__item--mobile:hover {
+  background-color: #12171d;
+}
+
+.logout--mobile {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 45px;
+}
+
+@media screen and (min-width: 740px) {
+  .menu--mobile {
+    display: none;
+  }
+}

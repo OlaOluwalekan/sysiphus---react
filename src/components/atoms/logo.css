@@ -1,0 +1,10 @@
+.logo__image {
+  width: 100px;
+}
+
+@media screen and (min-width: 740px) {
+  .logo {
+    padding: 0 20px;
+    border-right: 1px solid #a7b1bc;
+  }
+}
