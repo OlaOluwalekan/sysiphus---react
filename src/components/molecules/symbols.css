@@ -1,0 +1,16 @@
+.symbol__option {
+  display: none;
+}
+
+.symbol__option__label {
+  cursor: pointer;
+}
+
+.symbol__option__label > div {
+  line-height: 40px;
+  padding: 0 10px;
+}
+
+.symbol__option__label > div:hover {
+  background-color: #1c2127;
+}

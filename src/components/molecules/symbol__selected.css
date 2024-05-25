@@ -1,0 +1,12 @@
+.symbol__selected {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.symbol__selected__arrow {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}

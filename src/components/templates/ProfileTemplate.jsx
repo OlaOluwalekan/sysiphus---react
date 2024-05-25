@@ -3,14 +3,15 @@ import MobileNav from '../molecules/MobileNav'
 import OtherProfiles from '../organisms/OtherProfiles'
 import Profile from '../organisms/Profile'
 import './profile_template.css'
+import { useSelector } from 'react-redux'
 
 const ProfileTemplate = () => {
-  const [navIsOpen, setNavIsOpen] = useState(false)
+  const { navIsOpen } = useSelector((store) => store.general)
 
   return (
     <div className='profile'>
       <Profile />
-      <OtherProfiles handleClick={() => setNavIsOpen(!navIsOpen)} />
+      <OtherProfiles />
       {navIsOpen && <MobileNav />}
     </div>
   )
