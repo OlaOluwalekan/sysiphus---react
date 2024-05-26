@@ -1,10 +1,9 @@
-.header__col {
+.trade__header__col {
   display: flex;
   align-items: center;
 }
 
-.header__col--1 {
-  display: flex;
-  align-items: center;
+.trade__header__col--1 {
   gap: 30px;
+  /* background-color: red; */
 }

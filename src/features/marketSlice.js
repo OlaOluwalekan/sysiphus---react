@@ -22,12 +22,16 @@ const marketSlice = createSlice({
   initialState: {
     symbolsList: [],
     isLoading: false,
+    symbolPrice: 0,
   },
   reducers: {
     filterSymbols: (state, { payload }) => {
       state.symbolsList = state.symbolsList.filter((symbol) =>
         symbol.symbol.toLowerCase().includes(payload.toLowerCase())
       )
+    },
+    changeSymbolPrice: (state, { payload }) => {
+      state.symbolPrice = payload
     },
   },
   extraReducers: (builder) => {
@@ -46,6 +50,6 @@ const marketSlice = createSlice({
   },
 })
 
-export const { filterSymbols } = marketSlice.actions
+export const { filterSymbols, changeSymbolPrice } = marketSlice.actions
 
 export default marketSlice.reducer

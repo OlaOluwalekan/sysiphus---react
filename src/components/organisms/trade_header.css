@@ -3,3 +3,9 @@
   background-color: #20252b;
   margin: 2px 0;
 }
+
+@media screen and (min-width: 740px) {
+  .trade__header {
+    display: flex;
+  }
+}

@@ -1,0 +1,11 @@
+.symbol__price.green {
+  color: #00c076;
+}
+
+.symbol__price.red {
+  color: #ff6838;
+}
+
+.symbol__price.white {
+  color: white;
+}
