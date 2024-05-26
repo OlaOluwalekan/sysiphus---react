@@ -1,12 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {
+  addItemToLocalStorage,
+  getItemFromLocalStorage,
+} from '../helpers/local_storage'
 
 const generalSlice = createSlice({
   name: 'general',
   initialState: {
     navIsOpen: false,
     symbolsDropdownIsOpen: false,
-    defaultSymbol: 'BTC/USDT',
-    timeInterval: '1s',
+    defaultSymbol: getItemFromLocalStorage('defaultSymbol') || 'BTC/USDT',
+    timeInterval: getItemFromLocalStorage('timeInterval') || '1d',
     currentOrderTab: 'chart',
     secondOrderTab: 'orderbook_d',
     screenWidth: window.innerWidth,
@@ -22,9 +26,11 @@ const generalSlice = createSlice({
     },
     toggleDefaultSymbol: (state, { payload }) => {
       state.defaultSymbol = payload
+      addItemToLocalStorage('defaultSymbol', payload)
     },
     changeInterval: (state, { payload }) => {
       state.timeInterval = payload
+      addItemToLocalStorage('timeInterval', payload)
     },
     changeCurrentOrderTab: (state, { payload }) => {
       state.currentOrderTab = payload
