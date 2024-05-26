@@ -13,24 +13,16 @@ const Chart = () => {
 
   const { defaultSymbol, timeInterval } = useSelector((store) => store.general)
 
-  window.onresize = () => {
-    chartRefContainer.current.style.width = 'fit-content'
-    chartRefContainer.current.style.height = 'fit-content'
-    if (window.innerWidth < 740) {
-      chartRef.current.resize(0.95 * window.innerWidth, 0.6 * window.innerWidth)
-    } else {
-      chartRef.current.resize(0.62 * window.innerWidth, 0.4 * window.innerWidth)
-    }
-    // chartRef.current.resize(
-    //   chartRefContainer.current.clientWidth,
-    //   chartRefContainer.current.clientHeight
-    // )
-  }
-
   useEffect(() => {
     chartRef.current = createChart(chartRefContainer.current, {
-      width: chartRefContainer.current.clientWidth,
-      // height: 0.7 * window.innerWidth,
+      width:
+        window.innerWidth > 740
+          ? 0.45 * window.innerWidth
+          : 0.98 * window.innerWidth,
+      height:
+        window.innerWidth > 740
+          ? 0.4 * window.innerWidth
+          : 0.7 * window.innerWidth,
       layout: {
         background: { color: '#20252B' },
         textColor: '#ffffffbb',
@@ -83,6 +75,30 @@ const Chart = () => {
       candleSeriesRef
     )
 
+    window.addEventListener('resize', () => {
+      // if (chartRefContainer.current) {
+      // chartRefContainer.current.style.width = 'fit-content'
+      // chartRefContainer.current.style.height = 'fit-content'
+      // }
+      // console.log(chartRefContainer, chartRefContainer.current)
+      console.log(chartRef, chartRef.current)
+      if (window.innerWidth < 740) {
+        chartRef.current.resize(
+          0.95 * window.innerWidth,
+          0.6 * window.innerWidth
+        )
+      } else {
+        chartRef.current.resize(
+          0.45 * window.innerWidth,
+          0.4 * window.innerWidth
+        )
+      }
+    })
+
+    // window.onresize = () => {
+
+    // }
+
     const wsEndpoint = `wss://stream.binance.com:443/ws/${defaultSymbol
       .toLowerCase()
       .replace('/', '')}@kline_${timeInterval}`
@@ -95,7 +111,6 @@ const Chart = () => {
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data)
-      console.log(data)
       const kline = data.k
       if (kline.x) {
         const newKline = {
@@ -130,7 +145,7 @@ const Chart = () => {
       <div
         className='chart__main'
         ref={chartRefContainer}
-        style={{ width: '100%', height: 0.7 * window.innerWidth }}
+        // style={{ width: '100%', height: 0.7 * window.innerWidth }}
       ></div>
     </div>
   )

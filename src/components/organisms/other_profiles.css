@@ -12,6 +12,10 @@
 
 .profile__others__logout {
   display: none;
+  background: none;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 .nav__button {

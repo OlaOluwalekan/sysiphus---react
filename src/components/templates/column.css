@@ -9,25 +9,47 @@
 }
 
 /* CHART */
-.order__recent__column {
+/* .order__recent__column {
   display: none;
-}
+} */
 
 .chart__row__column--2 {
   display: none;
+  background-color: #20252b;
+  padding: 10px 5px;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 740px) {
+  .header__col--1 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
   .chart__history__row--1 {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 67% 33%;
+    gap: 5px;
   }
 
   .order__recent__column {
     display: flex;
+    flex-direction: column;
+    background-color: #20252b;
+    border-radius: 10px;
+    padding: 10px 5px;
   }
 
   .chart__row__column--2 {
     display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .chart__history__row--1 {
+    grid-template-columns: 74% 24%;
+    gap: 15px;
   }
 }

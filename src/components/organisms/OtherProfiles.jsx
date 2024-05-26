@@ -1,20 +1,25 @@
 import { FaBarsStaggered, FaGlobe, FaRightFromBracket } from 'react-icons/fa6'
 import './other_profiles.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleNavbar } from '../../features/generalSlice'
+import { addCurrentUser, toggleNavbar } from '../../features/generalSlice'
 
-const OtherProfiles = ({ handleClick }) => {
+const OtherProfiles = () => {
   const dispatch = useDispatch()
-  const { navIsOpen } = useSelector((store) => store.general)
+  const { navIsOpen, currentUser } = useSelector((store) => store.general)
 
   return (
     <div className='profile__others'>
       <span className='profile__others__globe'>
         <FaGlobe />
       </span>
-      <span className='profile__others__logout'>
-        <FaRightFromBracket />
-      </span>
+      {currentUser && (
+        <button
+          className='profile__others__logout'
+          onClick={() => dispatch(addCurrentUser(null))}
+        >
+          <FaRightFromBracket />
+        </button>
+      )}
       <button
         className='nav__button'
         onClick={() => dispatch(toggleNavbar(!navIsOpen))}
