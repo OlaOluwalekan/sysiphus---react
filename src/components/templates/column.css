@@ -7,3 +7,27 @@
   gap: 30px;
   /* background-color: red; */
 }
+
+/* CHART */
+.order__recent__column {
+  display: none;
+}
+
+.chart__row__column--2 {
+  display: none;
+}
+
+@media screen and (min-width: 740px) {
+  .chart__history__row--1 {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .order__recent__column {
+    display: flex;
+  }
+
+  .chart__row__column--2 {
+    display: flex;
+  }
+}

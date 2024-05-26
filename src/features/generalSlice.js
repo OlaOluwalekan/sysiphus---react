@@ -6,6 +6,7 @@ const generalSlice = createSlice({
     navIsOpen: false,
     symbolsDropdownIsOpen: false,
     defaultSymbol: 'BTC/USDT',
+    timeInterval: '1s',
   },
   reducers: {
     toggleNavbar: (state, { payload }) => {
@@ -17,10 +18,17 @@ const generalSlice = createSlice({
     toggleDefaultSymbol: (state, { payload }) => {
       state.defaultSymbol = payload
     },
+    changeInterval: (state, { payload }) => {
+      state.timeInterval = payload
+    },
   },
 })
 
-export const { toggleNavbar, toggleSymbolsDropdown, toggleDefaultSymbol } =
-  generalSlice.actions
+export const {
+  toggleNavbar,
+  toggleSymbolsDropdown,
+  toggleDefaultSymbol,
+  changeInterval,
+} = generalSlice.actions
 
 export default generalSlice.reducer

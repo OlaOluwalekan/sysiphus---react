@@ -27,7 +27,7 @@ const SymbolPrice = () => {
   const wsRef = useRef()
 
   useEffect(() => {
-    console.log(defaultSymbol)
+    // console.log(defaultSymbol)
     const wsEndpoint = `wss://stream.binance.com:443/ws/${defaultSymbol
       .split('/')
       .join('')
@@ -35,9 +35,9 @@ const SymbolPrice = () => {
     const ws = new WebSocket(wsEndpoint)
     wsRef.current = ws
 
-    ws.onopen = () => {
-      console.log('Connected to WebSocket server for real-time trade updates')
-    }
+    // ws.onopen = () => {
+    //   console.log('Connected to WebSocket server for real-time trade updates')
+    // }
 
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data)
@@ -46,7 +46,7 @@ const SymbolPrice = () => {
       setCurrentPrice(newPrice)
       setPriceColor(getPriceColor(newPrice, symbolPrice))
       dispatch(changeSymbolPrice(newPrice))
-      document.title = `${formatToUSD(newPrice)} | ${symbol}`
+      document.title = `${formatToUSD(newPrice)} | ${defaultSymbol}`
     }
 
     return () => {
